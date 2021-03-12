@@ -994,6 +994,7 @@ a:hover {
 }
 
 .portfolio-details .portfolio-info h3 {
+  color: #0078ff;
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -1012,13 +1013,17 @@ a:hover {
 }
 
 .portfolio-details .portfolio-description {
-  padding-top: 30px;
+  padding: 0 0 0 20px;
+  padding-top: 0px;
 }
 
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
+.portfolio-details .portfolio-description h3 {
+  color: #0078ff;
+  font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
 }
 
 .portfolio-details .portfolio-description p {
