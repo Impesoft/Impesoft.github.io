@@ -508,7 +508,7 @@ a:hover {
 .navbar a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -1649,4 +1649,10 @@ timeline-badge-text{
 }
 .text-muted{
   font-weight: 700;
+}
+.container {
+  justify-content: space-between;
+}
+.preloader {
+  display: none;
 }
