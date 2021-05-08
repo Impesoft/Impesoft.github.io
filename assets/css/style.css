@@ -1656,3 +1656,9 @@ timeline-badge-text{
 .preloader {
   display: none;
 }
+
+.swipeIT {
+  max-height:500px;
+  max-width: 250px;
+  margin-left: 150px;
+}
