@@ -24,6 +24,72 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="/js/vendor/jquery/jquery-3.5.1.min.js?_v=cfd1b827"><\/script>')</script>
   <script src="/assets/js/fireworks.js?_v=cfd1b827"></script>
+  <script>
+
+    $(document).ready(function(){
+      var html = $('#XF');
+      
+      
+        // Advanced search menu
+        $('.focus-search-advanced').on('click', function(){ html.toggleClass('focus-search-menu-active'); });
+        $('.focus-search-flex input').on('focus', function(){ html.addClass('focus-search-menu-active'); });
+        $(document).on('click', function() { html.removeClass('focus-search-menu-active'); });
+        $('.focus-wrap-search').on('click', function(event){ event.stopPropagation(); });
+      
+    
+      
+        $("[data-xenfocus-editor]").hover(function() {
+          html.addClass('focus-picker--loaded');
+        });
+        // xenfocus editor: open and close with data-xenfocus-editor
+        $("[data-xenfocus-editor]").on('click', function(event){
+          html.toggleClass('focus-editor-open').addClass('focus-picker--loaded');
+          event.preventDefault();
+        });
+        // ..and close by pressing ESC
+        $(document).keyup(function(e) {
+          if (e.keyCode === 27){
+            html.removeClass('focus-editor-open');
+          }
+        });
+        
+        $('.focus-editor-panel').each(function(){
+          // This value is used for localstorage names and class names.
+          var settingName = $(this).attr('data-setting');
+          var settingDefault = $(this).attr('data-setting-default');
+          var settingChoice = localStorage.getItem(settingName);
+          if(settingChoice === 'on'){
+            $(this).attr('data-setting-status','on');
+          } else if(settingChoice === 'off') {
+            $(this).attr('data-setting-status','off');
+          } else {
+            if(settingDefault === 'on'){
+              $(this).attr('data-setting-status','on');
+            } else{
+              $(this).attr('data-setting-status','off');
+            }
+          }
+        });
+        // Change the class and localstorage when the toggle is clicked
+        $('.focus-editor-panel').on('click', function(){
+          var settingName = $(this).attr('data-setting');
+          var settingStatus = $(this).attr('data-setting-status');
+          if(settingStatus === 'on'){
+            html.removeClass(settingName);
+            localStorage.setItem(settingName, 'off');
+            $(this).attr('data-setting-status', 'off');
+          } else {
+            html.addClass(settingName);
+            localStorage.setItem(settingName, 'on');
+            $(this).attr('data-setting-status', 'on');
+          }
+        });
+      
+    });
+    
+      
+    
+    </script>
   <script class="js-thHolidaysFireworksOptions" type="application/json">
     {"enabled":1}
 </script>
