@@ -13,10 +13,10 @@
   <link href="favicon.ico" rel="icon">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -27,6 +27,44 @@
   <script class="js-thHolidaysFireworksOptions" type="application/json">
     {"enabled":1}
 </script>
+<script src="/assets/js/preamble.min.js?_v=cfd1b827"></script>
+<script type='text/javascript'>
+  var xfhtml = document.getElementById('XF');
+  function applySetting(settingName, settingOn, allowToggle){
+    
+    // Theme editor is enabled. Check for selected toggle, otherwise apply default
+      if(allowToggle === 1){
+        var choice = localStorage.getItem(settingName);
+        if( (choice === 'on') || (!choice && (settingOn === 1)) ){
+          xfhtml.classList.add(settingName);
+        }
+      } else if(settingOn === 1){
+        xfhtml.classList.add(settingName);
+      }
+    
+  }
+  
+  applySetting('focus-mobile-navigation-bar', 1, 1);
+  
+  
+  applySetting('focus-fluid', 1, 1);
+  
+  
+  applySetting('focus-grid', 0, 1);
+  
+  
+  applySetting('focus-sidebar-sticky', 0, 1);
+  
+  
+  applySetting('focus-sidebar-flip', 0, 1);
+  
+  
+  
+  
+  
+    xfhtml.setAttribute('data-focus-bg', '1');
+  
+  </script>
 <canvas class="js-thHolidaysFireworksCanvas" data-xf-init="th-holidays-fireworks"></canvas>
 
 </head>
