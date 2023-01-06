@@ -29,9 +29,9 @@
 
 <!-- Usage -->
 <script>
-  const container = document.querySelector('.fireworks')
-  const fireworks = Fireworks.default(container)
-  fireworks.start()
+  const container = document.querySelector('.fireworks');
+  const fireworks = new Fireworks(container, { /* options */ });
+  fireworks.start();
 </script>
 
 </head>
