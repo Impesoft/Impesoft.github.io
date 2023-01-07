@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" data-color-mode="dark" data-light-theme="light" data-dark-theme="dark" data-a11y-animated-images="system">
   <head>
@@ -226,16 +219,16 @@
           data-hotkey=s,/
           name="q"
           data-test-selector="nav-search-input"
-          placeholder="Search or jump toâ€¦"
-          data-unscoped-placeholder="Search or jump toâ€¦"
-          data-scoped-placeholder="Search or jump toâ€¦"
+          placeholder="Search or jump toâ€?
+          data-unscoped-placeholder="Search or jump toâ€?
+          data-scoped-placeholder="Search or jump toâ€?
           autocapitalize="off"
           role="combobox"
           aria-haspopup="listbox"
           aria-expanded="false"
           aria-autocomplete="list"
           aria-controls="jump-to-results"
-          aria-label="Search or jump toâ€¦"
+          aria-label="Search or jump toâ€?
           data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations"
           spellcheck="false"
           autocomplete="off"
@@ -276,12 +269,12 @@
       <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
         All GitHub
       </span>
-      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">â†µ</span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">â†?/span>
     </div>
 
     <div aria-hidden="true" class="border rounded-2 flex-shrink-0 color-bg-subtle px-1 color-fg-muted ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
       Jump to
-      <span class="d-inline-block ml-1 v-align-middle">â†µ</span>
+      <span class="d-inline-block ml-1 v-align-middle">â†?/span>
     </div>
   </a>
 </li>
@@ -323,12 +316,12 @@
       <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
         All GitHub
       </span>
-      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">â†µ</span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">â†?/span>
     </div>
 
     <div aria-hidden="true" class="border rounded-2 flex-shrink-0 color-bg-subtle px-1 color-fg-muted ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
       Jump to
-      <span class="d-inline-block ml-1 v-align-middle">â†µ</span>
+      <span class="d-inline-block ml-1 v-align-middle">â†?/span>
     </div>
   </a>
 </li>
@@ -361,12 +354,12 @@
       <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
         All GitHub
       </span>
-      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">â†µ</span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">â†?/span>
     </div>
 
     <div aria-hidden="true" class="border rounded-2 flex-shrink-0 color-bg-subtle px-1 color-fg-muted ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
       Jump to
-      <span class="d-inline-block ml-1 v-align-middle">â†µ</span>
+      <span class="d-inline-block ml-1 v-align-middle">â†?/span>
     </div>
   </a>
 </li>
@@ -399,12 +392,12 @@
       <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
         All GitHub
       </span>
-      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">â†µ</span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">â†?/span>
     </div>
 
     <div aria-hidden="true" class="border rounded-2 flex-shrink-0 color-bg-subtle px-1 color-fg-muted ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
       Jump to
-      <span class="d-inline-block ml-1 v-align-middle">â†µ</span>
+      <span class="d-inline-block ml-1 v-align-middle">â†?/span>
     </div>
   </a>
 </li>
@@ -513,7 +506,7 @@
         <details class="details-overlay details-reset">
   <summary
     class="Header-link"
-    aria-label="Create newâ€¦"
+    aria-label="Create newâ€?
     data-analytics-event="{&quot;category&quot;:&quot;Header&quot;,&quot;action&quot;:&quot;create new&quot;,&quot;label&quot;:&quot;icon:add&quot;}"
   >
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-plus">
@@ -2720,7 +2713,7 @@
 </span></span>
   <span data-target="remote-clipboard-copy.fetching" hidden="hidden">                  Copy raw contents
                   <span class="d-inline-block position-relative" style="top: 3px">
-                    <svg aria-label="fetching contentsâ€¦" style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewBox="0 0 16 16" fill="none" data-view-component="true" class="anim-rotate">
+                    <svg aria-label="fetching contentsâ€? style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewBox="0 0 16 16" fill="none" data-view-component="true" class="anim-rotate">
   <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" />
   <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke" />
 </svg>
@@ -3239,4 +3232,3 @@
     <div id="js-global-screen-reader-notice" class="sr-only" aria-live="polite" ></div>
   </body>
 </html>
-
