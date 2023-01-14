@@ -21,9 +21,13 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/ec7d47053f.js" crossorigin="anonymous"></script>
-
-  <div id="app"></div>
-  <script type="module" src="./src/index.js"></script>
+  <div id="root"></div>
+  <script src="https://unpkg.com/fireworks-js@latest/dist/fireworks.js"></script>
+  <script>
+    const root = document.getElementById('root')
+    const fireworks = new Fireworks(root)
+    fireworks.start()
+  </script>
 </head>
 
 <body>
