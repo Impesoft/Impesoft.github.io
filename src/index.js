@@ -1,26 +1,26 @@
 "use strict";
-exports.__esModule = true;
-var dom_1 = require("@zero-dependency/dom");
-var fireworks_js_1 = require("fireworks-js");
+Object.defineProperty(exports, "__esModule", { value: true });
+const dom_1 = require("@zero-dependency/dom");
+const fireworks_js_1 = require("fireworks-js");
 require("./style.css");
-var app = document.querySelector('#app');
-var fireworks = new fireworks_js_1.Fireworks(app);
-var start = (0, dom_1.el)('button', {
-    onclick: function () {
+const app = document.querySelector('#app');
+const fireworks = new fireworks_js_1.Fireworks(app);
+const start = (0, dom_1.el)('button', {
+    onclick: () => {
         fireworks.start();
     }
 }, 'Start');
-var stop = (0, dom_1.el)('button', {
-    onclick: function () {
+const stop = (0, dom_1.el)('button', {
+    onclick: () => {
         fireworks.waitStop();
     }
 }, 'Stop');
-var launch = (0, dom_1.el)('button', {
-    onclick: function () {
+const launch = (0, dom_1.el)('button', {
+    onclick: () => {
         fireworks.launch(Number(count.value));
     }
 }, 'Launch');
-var count = (0, dom_1.el)('input', {
+const count = (0, dom_1.el)('input', {
     value: '1',
     min: '1',
     max: '15',
@@ -30,7 +30,7 @@ var count = (0, dom_1.el)('input', {
         width: '2rem'
     }
 });
-var buttons = (0, dom_1.el)('div', {
+const buttons = (0, dom_1.el)('div', {
     style: {
         position: 'absolute',
         display: 'flex',
