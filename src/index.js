@@ -1,4 +1,3 @@
-import { el } from '@zero-dependency/dom';
 import { Fireworks } from 'fireworks-js';
 import './style.css';
 const app = document.querySelector('#app');
