@@ -1,0 +1,30 @@
+<div class="skill-bar-wrapper">
+    <div class="skill-info">
+        <span>@SkillName</span>
+        <span>@Percentage%</span>
+    </div>
+    <div class="skill-track">
+        <div class="skill-fill" style="width: @(isAnimated ? $"{Percentage}%" : "0%")"></div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string SkillName { get; set; } = string.Empty;
+
+    [Parameter]
+    public int Percentage { get; set; }
+
+    private bool isAnimated = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Wait briefly to allow the DOM to render the track before initiating the width transition
+            await Task.Delay(100);
+            isAnimated = true;
+            StateHasChanged();
+        }
+    }
+}

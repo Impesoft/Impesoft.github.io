@@ -1,0 +1,24 @@
+<div class="timeline-item">
+    <div class="timeline-card glass-card">
+        <div class="timeline-header">
+            <h3>@Role</h3>
+            <span class="timeline-date">@Date</span>
+        </div>
+        <div class="timeline-company">@Company</div>
+        <p class="timeline-desc">@Description</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Date { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Role { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Company { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Description { get; set; } = string.Empty;
+}

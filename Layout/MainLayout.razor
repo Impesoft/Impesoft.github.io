@@ -1,0 +1,70 @@
+@inherits LayoutComponentBase
+
+<div class="app-wrapper">
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="#" class="logo-wrapper" @onclick='() => NavigateTo("#hero")'>
+                <video src="assets/img/Ward-Logo.mp4" muted autoplay loop playsinline class="logo-video"></video>
+            </a>
+            
+            <button class="nav-toggle" @onclick="ToggleMenu" aria-label="Toggle navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            
+            <ul class="nav-links @(isMenuOpen ? "active-mobile" : "")">
+                <li><a href="#hero" class="@GetActiveClass("#hero")" @onclick='() => NavigateTo("#hero")'>Home</a></li>
+                <li><a href="#about" class="@GetActiveClass("#about")" @onclick='() => NavigateTo("#about")'>About</a></li>
+                <li><a href="#timeline" class="@GetActiveClass("#timeline")" @onclick='() => NavigateTo("#timeline")'>Timeline</a></li>
+                <li><a href="#services" class="@GetActiveClass("#services")" @onclick='() => NavigateTo("#services")'>Services</a></li>
+                <li><a href="#projects" class="@GetActiveClass("#projects")" @onclick='() => NavigateTo("#projects")'>Projects</a></li>
+                <li><a href="#contact" class="@GetActiveClass("#contact")" @onclick='() => NavigateTo("#contact")'>Contact</a></li>
+                <li><a href="https://impesoft.github.io/cv/" target="_blank" class="cv-link">CV</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        @Body
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-copy">
+                &copy; @DateTime.Now.Year Impesoft. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/Impesoft" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="mailto:Ward@impesoft.com">Email</a>
+                <a href="https://impesoft.github.io/cv/" target="_blank" rel="noopener noreferrer">CV</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+@code {
+    private bool isMenuOpen = false;
+    private string activeAnchor = "#hero";
+
+    private void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+    }
+
+    private void NavigateTo(string anchor)
+    {
+        activeAnchor = anchor;
+        isMenuOpen = false;
+    }
+
+    private string GetActiveClass(string anchor)
+    {
+        return activeAnchor == anchor ? "active" : "";
+    }
+}

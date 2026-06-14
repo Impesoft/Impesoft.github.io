@@ -1,0 +1,370 @@
+@page "/"
+@using System.ComponentModel.DataAnnotations
+@implements IDisposable
+
+<PageTitle>Ward Impe | Medior Full-Stack Developer & Consultant</PageTitle>
+
+<!-- Hero Section -->
+<section id="hero" class="section hero-sec">
+    <div class="hero-content">
+        <span class="hero-subtitle">Welcome to my site</span>
+        <h1 class="hero-title">I am <span style="color: var(--accent-primary);">@currentTypedText</span><span class="cursor" style="color: var(--accent-primary); font-weight: 300;">|</span></h1>
+        <p class="hero-desc" style="color: var(--text-secondary); font-size: 1.15rem; max-width: 550px;">
+            Crafting robust, scalable software solutions with .NET, Blazor, and modern cloud technologies. Building the bridge between complex backends and delightful user interfaces.
+        </p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Get in Touch</a>
+            <a href="#projects" class="btn-secondary">View Work</a>
+        </div>
+    </div>
+    
+    <div class="hero-visual">
+        <svg class="hero-svg" viewBox="0 0 500 500" width="100%" height="100%">
+            <defs>
+                <linearGradient id="gridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--accent-primary)" stop-opacity="0.8" />
+                    <stop offset="100%" stop-color="var(--accent-secondary)" stop-opacity="0.2" />
+                </linearGradient>
+                <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="var(--accent-primary)" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="var(--bg-base)" stop-opacity="0" />
+                </radialGradient>
+            </defs>
+            <!-- Background Glow -->
+            <circle cx="250" cy="250" r="180" fill="url(#glowGrad)" class="anim-pulse" />
+            
+            <!-- Code Nodes Grid -->
+            <g stroke="url(#gridGrad)" stroke-width="1.5" fill="none">
+                <!-- Connecting lines -->
+                <path d="M 100 100 L 250 150 L 400 100 L 400 300 L 250 350 L 100 300 Z" class="anim-dash" />
+                <path d="M 100 100 L 250 250 L 400 100" />
+                <path d="M 100 300 L 250 250 L 400 300" />
+                <path d="M 250 150 L 250 350" />
+            </g>
+            
+            <!-- Animated Nodes -->
+            <circle cx="100" cy="100" r="8" fill="var(--accent-primary)" class="anim-pulse" />
+            <circle cx="250" cy="150" r="10" fill="var(--accent-secondary)" />
+            <circle cx="400" cy="100" r="8" fill="var(--accent-primary)" class="anim-pulse" />
+            <circle cx="250" cy="250" r="14" fill="var(--accent-primary)" />
+            <circle cx="100" cy="300" r="8" fill="var(--accent-secondary)" />
+            <circle cx="250" cy="350" r="10" fill="var(--accent-primary)" />
+            <circle cx="400" cy="300" r="8" fill="var(--accent-secondary)" class="anim-pulse" />
+        </svg>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">A blend of logical thinking, technical troubleshooting, and full-stack development experience.</p>
+    
+    <div class="about-grid">
+        <div class="about-avatar-wrapper">
+            <svg viewBox="0 0 200 200" width="100%" height="200" style="max-width: 240px; filter: drop-shadow(0 8px 20px var(--neon-glow));">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-dasharray="5 5" class="anim-dash" />
+                <circle cx="100" cy="100" r="75" fill="var(--bg-surface)" stroke="var(--border-color)" stroke-width="2" />
+                <path d="M 50 145 A 50 50 0 0 1 150 145" fill="none" stroke="var(--accent-secondary)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="100" cy="80" r="24" fill="var(--border-color)" stroke="var(--accent-primary)" stroke-width="2" />
+            </svg>
+        </div>
+        
+        <div class="about-bio">
+            <h3 style="font-size: 1.5rem;">Who I Am</h3>
+            <p class="bio-text">
+                Hi, I'm Ward Impe. I am a dedicated full-stack C# .NET developer and technology consultant. Over the years, I've masterfully combined logic, analytical problem solving, and detailed troubleshooting.
+            </p>
+            <p class="bio-text">
+                With a background that includes beta testing and collaborating directly with software development teams, diagnosing complex bugs and architecting resilient features has become second nature. I know how to ask the right questions and design robust solutions.
+            </p>
+            
+            <div class="skills-grid">
+                <h3 class="skills-title">Core Competencies</h3>
+                <div class="skills-list">
+                    <SkillMeter SkillName="C# & .NET Core" Percentage="85" />
+                    <SkillMeter SkillName="Blazor & WebAssembly" Percentage="80" />
+                    <SkillMeter SkillName="Xamarin & MAUI" Percentage="85" />
+                    <SkillMeter SkillName="JavaScript / TypeScript" Percentage="80" />
+                    <SkillMeter SkillName="HTML5 & Modern CSS" Percentage="90" />
+                    <SkillMeter SkillName="SQL & Databases" Percentage="75" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience & Education Timeline -->
+<section id="timeline" class="section" style="background: var(--bg-surface);">
+    <h2 class="section-title">Education & Experience</h2>
+    <p class="section-subtitle">My journey through professional work, technical testing, and custom programming projects.</p>
+    
+    <div class="timeline-container">
+        <TimelineItem Date="2020 - Present" 
+                      Role="Software Developer & Consultant" 
+                      Company="Impesoft" 
+                      Description="Designing and building modern web, mobile, and desktop applications using C#, .NET Core, Blazor, and Xamarin/MAUI. Providing tailored consulting on technology architecture and system integration." />
+        
+        <TimelineItem Date="2006 - 2026" 
+                      Role="Full-Time Video Jockey & DJ" 
+                      Company="Self-Employed" 
+                      Description="Honed robust interpersonal, client relationship, and project planning skills. Acted as a key beta tester for audio/video mix software, submitting detailed bug diagnostics directly to development departments." />
+        
+        <TimelineItem Date="1999 - Present" 
+                      Role="Tech Betatester & System Admin" 
+                      Company="Community & Open Source" 
+                      Description="Setting up server networks, managing local system infrastructure, and beta testing various apps. Mastered technical diagnostics and documentation practices." />
+    </div>
+</section>
+
+<!-- Services / Offerings -->
+<section id="services" class="section">
+    <h2 class="section-title">Services</h2>
+    <p class="section-subtitle">Providing high-quality engineering services tailored to fit business and automation goals.</p>
+    
+    <div class="services-grid">
+        <div class="service-card glass-card">
+            <div class="service-icon-wrapper">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+            </div>
+            <h3>SaaS Web Development</h3>
+            <p>Building client-side rich, static or server-interactive single-page web applications using Blazor WebAssembly and modern CSS design tokens.</p>
+        </div>
+        
+        <div class="service-card glass-card">
+            <div class="service-icon-wrapper">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+            </div>
+            <h3>API Integration & Backend</h3>
+            <p>Creating robust, scalable API connectors, data scraping utilities, and clean backend logic configured for reliable database migrations.</p>
+        </div>
+        
+        <div class="service-card glass-card">
+            <div class="service-icon-wrapper">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+            </div>
+            <h3>Cross-Platform Mobile Apps</h3>
+            <p>Developing native mobile applications using Xamarin and .NET MAUI to share codebase structures while deploying smoothly on iOS and Android.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Showcase -->
+<section id="projects" class="section" style="background: var(--bg-surface);">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Explore some of my open-source projects, toolkits, and web assets hosted on GitHub.</p>
+    
+    <div class="projects-grid">
+        <ProjectCard Title="Tetris" 
+                     Description="A modern clean implementation of the classic Tetris game built to explore advanced logical state management and UI grid rendering."
+                     Tech='@(new[] { "C#", "Blazor", "CSS Grid" })'
+                     Link="https://github.com/Impesoft/Tetris" />
+                     
+        <ProjectCard Title="Magic Mirror" 
+                     Description="A custom modular smart mirror dashboard integrating widgets for real-time calendar updates, local weather reports, and video feeds."
+                     Tech='@(new[] { "JavaScript", "HTML", "CSS Animations" })'
+                     Link="https://github.com/Impesoft/MagicMirror_firstEffort" />
+                     
+        <ProjectCard Title="Console Pizzeria" 
+                     Description="An interactive console application demonstrating object-oriented menu construction, shopping cart actions, and invoice formatting in C#."
+                     Tech='@(new[] { "C#", ".NET Core", "OOP" })'
+                     Link="https://github.com/Impesoft/WardsPizzeria" />
+                     
+        <ProjectCard Title="Game of Goose" 
+                     Description="A digital implementation of the traditional board game with custom rule validations, turn-based loops, and simulated dice configurations."
+                     Tech='@(new[] { "C#", "Algorithm", "Console" })'
+                     Link="https://github.com/Impesoft/GOG" />
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">Let's discuss how we can work together. Send me a message directly using the form below.</p>
+    
+    <div class="contact-grid">
+        <div class="contact-info-column">
+            <div class="contact-detail">
+                <div class="contact-detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <div class="contact-detail-text">
+                    <h4>Email</h4>
+                    <p><a href="mailto:Ward@impesoft.com" style="color: var(--text-primary); text-decoration: none;">Ward@impesoft.com</a></p>
+                </div>
+            </div>
+            
+            <div class="contact-detail">
+                <div class="contact-detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <div class="contact-detail-text">
+                    <h4>Phone</h4>
+                    <p><a href="tel:+32472247929" style="color: var(--text-primary); text-decoration: none;">(+32) 472-247.929</a></p>
+                </div>
+            </div>
+            
+            <div class="contact-detail">
+                <div class="contact-detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="contact-detail-text">
+                    <h4>Location</h4>
+                    <p>Belgium</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form-column">
+            <EditForm Model="@contactModel" OnValidSubmit="HandleValidSubmit" class="contact-form">
+                <DataAnnotationsValidator />
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <InputText id="name" class="form-control" @bind-Value="contactModel.Name" placeholder="Your Name" />
+                    <ValidationMessage For="@(() => contactModel.Name)" />
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <InputText id="email" class="form-control" @bind-Value="contactModel.Email" placeholder="Your Email Address" />
+                    <ValidationMessage For="@(() => contactModel.Email)" />
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <InputTextArea id="message" rows="5" class="form-control" @bind-Value="contactModel.Message" placeholder="How can I help you?" />
+                    <ValidationMessage For="@(() => contactModel.Message)" />
+                </div>
+                
+                <button type="submit" class="btn-primary" style="align-self: flex-start;">Send Message</button>
+                
+                @if (isSubmitted)
+                {
+                    <div class="form-status success">
+                        Thank you! Your message has been sent successfully. I will get back to you soon.
+                    </div>
+                }
+            </EditForm>
+        </div>
+    </div>
+</section>
+
+@code {
+    private ContactFormModel contactModel = new();
+    private bool isSubmitted = false;
+    
+    private readonly string[] typedItems = new[]
+    {
+        "a C# .NET Developer",
+        "a Medior Full-Stack Engineer",
+        "a Tech Consultant",
+        "a Video Jockey & DJ",
+        "a Beta Tester",
+        "Ward Impe"
+    };
+    private string currentTypedText = "";
+    private int currentItemIndex = 0;
+    private bool isDeleting = false;
+    private System.Threading.CancellationTokenSource? cts;
+
+    protected override void OnInitialized()
+    {
+        cts = new System.Threading.CancellationTokenSource();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await StartTypingEffect(cts!.Token);
+        }
+    }
+
+    private async Task StartTypingEffect(System.Threading.CancellationToken token)
+    {
+        try
+        {
+            while (!token.IsCancellationRequested)
+            {
+                string fullText = typedItems[currentItemIndex];
+                if (!isDeleting)
+                {
+                    currentTypedText = fullText.Substring(0, currentTypedText.Length + 1);
+                    StateHasChanged();
+                    await Task.Delay(currentTypedText.Length == fullText.Length ? 2500 : 80, token);
+                    if (currentTypedText.Length == fullText.Length)
+                    {
+                        isDeleting = true;
+                    }
+                }
+                else
+                {
+                    currentTypedText = fullText.Substring(0, currentTypedText.Length - 1);
+                    StateHasChanged();
+                    await Task.Delay(40, token);
+                    if (currentTypedText.Length == 0)
+                    {
+                        isDeleting = false;
+                        currentItemIndex = (currentItemIndex + 1) % typedItems.Length;
+                    }
+                }
+            }
+        }
+        catch (TaskCanceledException)
+        {
+            // Gracefully catch cancellation
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        isSubmitted = true;
+        contactModel = new();
+        StateHasChanged();
+        
+        // Hide success message after 5 seconds
+        await Task.Delay(5000);
+        isSubmitted = false;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        cts?.Cancel();
+        cts?.Dispose();
+    }
+
+    public class ContactFormModel
+    {
+        [Required(ErrorMessage = "Name is required.")]
+        public string Name { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Email is required.")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
+        public string Email { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Message is required.")]
+        [MinLength(10, ErrorMessage = "Message must be at least 10 characters long.")]
+        public string Message { get; set; } = string.Empty;
+    }
+}
