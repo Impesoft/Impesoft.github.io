@@ -8,9 +8,13 @@
 <section id="hero" class="section hero-sec">
     <div class="hero-content">
         <span class="hero-subtitle">Welcome to my site</span>
-        <h1 class="hero-title">I am <span style="color: var(--accent-primary);">@currentTypedText</span><span class="cursor" style="color: var(--accent-primary); font-weight: 300;">|</span></h1>
-        <p class="hero-desc" style="color: var(--text-secondary); font-size: 1.15rem; max-width: 550px;">
-            Crafting robust, scalable software solutions with .NET, Blazor, and modern cloud technologies. Building the bridge between complex backends and delightful user interfaces.
+        <h1 class="hero-title">
+            <span class="hero-title-nowrap">
+                I am <span style="color: var(--accent-primary);">@currentTypedText</span><span class="cursor" style="color: var(--accent-primary); font-weight: 300;">|</span>
+            </span>
+        </h1>
+        <p class="hero-desc" style="color: var(--text-secondary); font-size: 1.15rem; max-width: 550px; min-height: 4.5em;">
+            @currentTypedDescription
         </p>
         <div class="hero-buttons">
             <a href="#contact" class="btn-primary">Get in Touch</a>
@@ -81,12 +85,14 @@
             <div class="skills-grid">
                 <h3 class="skills-title">Core Competencies</h3>
                 <div class="skills-list">
-                    <SkillMeter SkillName="C# & .NET Core" Percentage="85" />
-                    <SkillMeter SkillName="Blazor & WebAssembly" Percentage="80" />
-                    <SkillMeter SkillName="Xamarin & MAUI" Percentage="85" />
-                    <SkillMeter SkillName="JavaScript / TypeScript" Percentage="80" />
-                    <SkillMeter SkillName="HTML5 & Modern CSS" Percentage="90" />
-                    <SkillMeter SkillName="SQL & Databases" Percentage="75" />
+                    <SkillMeter SkillName="C# & .NET / ASP.NET Core" Percentage="90" />
+                    <SkillMeter SkillName="Blazor & WebAssembly" Percentage="85" />
+                    <SkillMeter SkillName="Xamarin & MAUI" Percentage="80" />
+                    <SkillMeter SkillName="JS, TS, Svelte & Angular" Percentage="80" />
+                    <SkillMeter SkillName="SQL, CosmosDB & MongoDB" Percentage="80" />
+                    <SkillMeter SkillName="Cloud, Docker & CI/CD" Percentage="75" />
+                    <SkillMeter SkillName="Testing (xUnit, Playwright)" Percentage="80" />
+                    <SkillMeter SkillName="AI & Prompt Engineering" Percentage="75" />
                 </div>
             </div>
         </div>
@@ -99,20 +105,45 @@
     <p class="section-subtitle">My journey through professional work, technical testing, and custom programming projects.</p>
     
     <div class="timeline-container">
+        <TimelineItem Date="Apr 2025 - Present" 
+                      Role="Medior Full-Stack .NET Developer" 
+                      Company="DMVH.eu" 
+                      Description="Full-stack .NET development and integration of advanced Prompt Engineering capabilities into ongoing software projects." />
+
+        <TimelineItem Date="Mar 2025 - Apr 2025" 
+                      Role="Medior Full-Stack .NET Developer" 
+                      Company="KeyIT by codevid" 
+                      Description="Contracted to develop software seamlessly integrating with hardware components. Collaborated closely with the infrastructure team utilizing strong analytical and architectural skills." />
+
+        <TimelineItem Date="Nov 2024 - Mar 2025" 
+                      Role="Medior Full-Stack .NET Developer" 
+                      Company="e2e web solutions" 
+                      Description="Developed online facilitator modules and management tools for room and equipment rentals, event registrations, and ticket sales using C# and .NET Core." />
+
+        <TimelineItem Date="Jun 2022 - Oct 2024" 
+                      Role="Software Developer" 
+                      Company="Dotnetlab (IT4IT Services)" 
+                      Description="Engineered a dynamic job site scraper, developed an LLM-integrated chat application in Svelte, delivered a Payworld terminal integration POC, created a dynamic funding application portal (FWO), and built a SaaS Time-Tracking Solution using Angular2 and .NET Core." />
+
+        <TimelineItem Date="Aug 2021 - Jun 2022" 
+                      Role="Software Developer" 
+                      Company="Integri Services" 
+                      Description="Developed a SaaS-based internal access portal for a 365 backup solution utilizing AWS Cognito, and created a standalone microservice for Mediahuis to enhance content metadata management via Oracle APIs." />
+
         <TimelineItem Date="2020 - Present" 
                       Role="Software Developer & Consultant" 
                       Company="Impesoft" 
                       Description="Designing and building modern web, mobile, and desktop applications using C#, .NET Core, Blazor, and Xamarin/MAUI. Providing tailored consulting on technology architecture and system integration." />
         
-        <TimelineItem Date="2006 - 2026" 
-                      Role="Full-Time Video Jockey & DJ" 
-                      Company="Self-Employed" 
-                      Description="Honed robust interpersonal, client relationship, and project planning skills. Acted as a key beta tester for audio/video mix software, submitting detailed bug diagnostics directly to development departments." />
-        
         <TimelineItem Date="1999 - Present" 
-                      Role="Tech Betatester & System Admin" 
-                      Company="Community & Open Source" 
-                      Description="Setting up server networks, managing local system infrastructure, and beta testing various apps. Mastered technical diagnostics and documentation practices." />
+                      Role="Alpha/Beta Tester & System Admin" 
+                      Company="Community & Several Companies" 
+                      Description="Setting up server networks, managing local system infrastructure, and beta testing various apps. Mastered technical diagnostics and documentation practices while engaging with GitHub and Git workflows." />
+
+        <TimelineItem Date="1997 - Present" 
+                      Role="DJ & Video Jockey" 
+                      Company="De Maecht van Ghent & Self-Employed" 
+                      Description="Honed robust interpersonal, client relationship, and project planning skills through decades of entertainment work. Acted as a key beta tester for audio/video mix software." />
     </div>
 </section>
 
@@ -166,15 +197,35 @@
     <p class="section-subtitle">Explore some of my open-source projects, toolkits, and web assets hosted on GitHub.</p>
     
     <div class="projects-grid">
+        <ProjectCard Title="POC InnerWorkings" 
+                     Description="Trying to figure out the deeper innerworkings of Blazor."
+                     Tech='@(new[] { "C#", "Blazor", "Research" })'
+                     Link="https://github.com/Impesoft/POC_InnerWorkings" />
+
+        <ProjectCard Title="VaccineApp" 
+                     Description="A full-stack application developed as a vaccine management system."
+                     Tech='@(new[] { "C#", ".NET Core" })'
+                     Link="https://github.com/Impesoft/VaccineApp" />
+
+        <ProjectCard Title="YES" 
+                     Description="An experimental project exploring modern frameworks and design patterns."
+                     Tech='@(new[] { "C#" })'
+                     Link="https://github.com/Impesoft/YES" />
+
+        <ProjectCard Title="MusicTeacher" 
+                     Description="Blazor WebAssembly music theory learning app for children."
+                     Tech='@(new[] { "C#", "Blazor", "Education" })'
+                     Link="https://github.com/Impesoft/MusicTeacher" />
+
+        <ProjectCard Title="Minimal Music Keyboard" 
+                     Description="Lightweight system-tray MIDI player for Windows 11 with WinUI3, MeltySynth, and NAudio WASAPI."
+                     Tech='@(new[] { "C#", "WinUI3", "NAudio" })'
+                     Link="https://github.com/Impesoft/minimal-music-keyboard" />
+
         <ProjectCard Title="Tetris" 
                      Description="A modern clean implementation of the classic Tetris game built to explore advanced logical state management and UI grid rendering."
                      Tech='@(new[] { "C#", "Blazor", "CSS Grid" })'
                      Link="https://github.com/Impesoft/Tetris" />
-                     
-        <ProjectCard Title="Magic Mirror" 
-                     Description="A custom modular smart mirror dashboard integrating widgets for real-time calendar updates, local weather reports, and video feeds."
-                     Tech='@(new[] { "JavaScript", "HTML", "CSS Animations" })'
-                     Link="https://github.com/Impesoft/MagicMirror_firstEffort" />
                      
         <ProjectCard Title="Console Pizzeria" 
                      Description="An interactive console application demonstrating object-oriented menu construction, shopping cart actions, and invoice formatting in C#."
@@ -282,7 +333,17 @@
         "a Beta Tester",
         "Ward Impe"
     };
+    private readonly string[] typedDescriptions = new[]
+    {
+        "Crafting robust, scalable software solutions with .NET Core, APIs, and modern databases.",
+        "Building the bridge between secure database/backend layers and delightful user interfaces.",
+        "Providing tailormade technical advice, system admin setups, and network solutions.",
+        "Combining 20 years of entertainment production, social assertiveness, and performance planning.",
+        "Diagnosing software bugs, executing regression tests, and reporting directly to developers.",
+        "A full-stack software engineer and consulting specialist dedicated to solving complex problems."
+    };
     private string currentTypedText = "";
+    private string currentTypedDescription = "";
     private int currentItemIndex = 0;
     private bool isDeleting = false;
     private System.Threading.CancellationTokenSource? cts;
@@ -290,6 +351,7 @@
     protected override void OnInitialized()
     {
         cts = new System.Threading.CancellationTokenSource();
+        currentTypedDescription = typedDescriptions[0];
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -326,6 +388,7 @@
                     {
                         isDeleting = false;
                         currentItemIndex = (currentItemIndex + 1) % typedItems.Length;
+                        currentTypedDescription = typedDescriptions[currentItemIndex];
                     }
                 }
             }
