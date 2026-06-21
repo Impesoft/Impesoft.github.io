@@ -37,6 +37,31 @@
     </div>
 
     <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const observeTimelineItems = () => {
+                document.querySelectorAll('.timeline-item:not(.observed)').forEach(el => {
+                    observer.observe(el);
+                    el.classList.add('observed');
+                });
+            };
+
+            const mutationObserver = new MutationObserver((mutations) => {
+                observeTimelineItems();
+            });
+
+            mutationObserver.observe(document.body, { childList: true, subtree: true });
+            observeTimelineItems();
+        });
+    </script>
 </body>
 
 </html>
