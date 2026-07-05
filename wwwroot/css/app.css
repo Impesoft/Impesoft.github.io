@@ -10,7 +10,7 @@
     --bg-base: light-dark(#f8fafc, #090d16);
     --bg-surface: light-dark(#ffffff, #111827);
     --bg-surface-glass: light-dark(rgba(255, 255, 255, 0.7), rgba(17, 24, 39, 0.65));
-    --navbar-bg: light-dark(rgba(248, 250, 252, 0.8), rgba(9, 13, 22, 0.8));
+    --navbar-bg: light-dark(rgba(248, 250, 252, 0.95), rgba(9, 13, 22, 0.95));
 
     --text-primary: light-dark(#0f172a, #f8fafc);
     --text-secondary: light-dark(#475569, #94a3b8);
@@ -314,6 +314,10 @@ h6 {
 .hero-title-nowrap {
     display: inline-block;
     white-space: nowrap;
+}
+
+.hero-title-mobile {
+    display: none;
 }
 
 .cursor {
@@ -1065,6 +1069,14 @@ h6 {
 
     .hero-title {
         font-size: 2.75rem;
+    }
+
+    .hero-title-nowrap {
+        display: none !important;
+    }
+
+    .hero-title-mobile {
+        display: inline-block !important;
     }
 
     .hero-buttons {
