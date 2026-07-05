@@ -18,7 +18,7 @@
     
     @if (!string.IsNullOrEmpty(ImageFolder) && ImageCount > 0)
     {
-        <ImageSlideshow ImageFolder="@ImageFolder" ImageCount="@ImageCount" />
+        <ImageSlideshow ImageFolder="@ImageFolder" ImageCount="@ImageCount" OnImageClick="OnImageClick" />
     }
     
     @if (Tech != null && Tech.Any())
@@ -55,6 +55,9 @@
 
     [Parameter]
     public int ImageCount { get; set; } = 0;
+
+    [Parameter]
+    public EventCallback<(string Folder, int Count, int Index)> OnImageClick { get; set; }
 
     [Parameter]
     public IEnumerable<string> Tech { get; set; } = Array.Empty<string>();

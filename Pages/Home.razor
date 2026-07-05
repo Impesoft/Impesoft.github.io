@@ -202,21 +202,24 @@
                      Tech='@(new[] { "C#", "Blazor", "Research" })'
                      Link="https://github.com/Impesoft/POC_InnerWorkings"
                      ImageFolder="POC_InnerWorkings"
-                     ImageCount="2" />
+                     ImageCount="2"
+                     OnImageClick="HandleImageClick" />
 
         <ProjectCard Title="VaccineApp" 
                      Description="A full-stack application developed as a vaccine management system."
                      Tech='@(new[] { "C#", ".NET Core" })'
                      Link="https://github.com/Impesoft/VaccineApp"
                      ImageFolder="VaccineApp"
-                     ImageCount="1" />
+                     ImageCount="1"
+                     OnImageClick="HandleImageClick" />
 
         <ProjectCard Title="YES" 
                      Description="An experimental project exploring modern frameworks and design patterns."
                      Tech='@(new[] { "C#" })'
                      Link="https://github.com/Impesoft/YES"
                      ImageFolder="Yes"
-                     ImageCount="3" />
+                     ImageCount="3"
+                     OnImageClick="HandleImageClick" />
 
         <ProjectCard Title="MusicTeacher" 
                      Description="Blazor WebAssembly music theory learning app for children."
@@ -326,7 +329,60 @@
     </div>
 </section>
 
+@if (isLightboxOpen)
+{
+    <div class="lightbox-overlay" @onclick="CloseLightbox">
+        <button class="lightbox-close" @onclick="CloseLightbox" @onclick:stopPropagation="true" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        
+        <div class="lightbox-content" @onclick:stopPropagation="true">
+            <img src="assets/img/projects/@lightboxFolder/screenshot_@(lightboxIndex).png" alt="Enlarged screenshot" />
+            
+            @if (lightboxCount > 1)
+            {
+                <button class="lightbox-btn prev" @onclick="PrevLightboxSlide" aria-label="Previous image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="lightbox-btn next" @onclick="NextLightboxSlide" aria-label="Next image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            }
+        </div>
+    </div>
+}
+
 @code {
+    private bool isLightboxOpen = false;
+    private string lightboxFolder = "";
+    private int lightboxCount = 0;
+    private int lightboxIndex = 1;
+
+    private void HandleImageClick((string Folder, int Count, int Index) data)
+    {
+        lightboxFolder = data.Folder;
+        lightboxCount = data.Count;
+        lightboxIndex = data.Index;
+        isLightboxOpen = true;
+    }
+
+    private void CloseLightbox()
+    {
+        isLightboxOpen = false;
+    }
+
+    private void NextLightboxSlide()
+    {
+        lightboxIndex++;
+        if (lightboxIndex > lightboxCount) lightboxIndex = 1;
+    }
+
+    private void PrevLightboxSlide()
+    {
+        lightboxIndex--;
+        if (lightboxIndex < 1) lightboxIndex = lightboxCount;
+    }
+
     private ContactFormModel contactModel = new();
     private bool isSubmitted = false;
     

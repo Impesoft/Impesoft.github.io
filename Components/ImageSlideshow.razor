@@ -1,9 +1,10 @@
 <div class="slideshow-container">
     @for (int i = 1; i <= ImageCount; i++)
     {
-        var isActive = i == currentSlideIndex ? "active" : "";
-        <div class="slide @isActive">
-            <img src="assets/img/projects/@ImageFolder/screenshot_@(i).png" alt="Screenshot @i" loading="lazy" />
+        int index = i;
+        var isActive = index == currentSlideIndex ? "active" : "";
+        <div class="slide @isActive" @onclick="() => OnImageClick.InvokeAsync((ImageFolder, ImageCount, index))" style="cursor: pointer;" title="Click to enlarge">
+            <img src="assets/img/projects/@ImageFolder/screenshot_@(index).png" alt="Screenshot @index" loading="lazy" />
         </div>
     }
 
@@ -18,8 +19,8 @@
         <div class="slide-dots">
             @for (int i = 1; i <= ImageCount; i++)
             {
-                int index = i;
-                <span class="dot @(i == currentSlideIndex ? "active" : "")" @onclick="() => SetSlide(index)"></span>
+                int dotIndex = i;
+                <span class="dot @(dotIndex == currentSlideIndex ? "active" : "")" @onclick="() => SetSlide(dotIndex)"></span>
             }
         </div>
     }
@@ -31,6 +32,9 @@
 
     [Parameter]
     public int ImageCount { get; set; } = 0;
+
+    [Parameter]
+    public EventCallback<(string Folder, int Count, int Index)> OnImageClick { get; set; }
 
     private int currentSlideIndex = 1;
 
