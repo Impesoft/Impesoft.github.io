@@ -16,6 +16,11 @@
     <h3>@Title</h3>
     <p class="project-desc">@Description</p>
     
+    @if (!string.IsNullOrEmpty(ImageFolder) && ImageCount > 0)
+    {
+        <ImageSlideshow ImageFolder="@ImageFolder" ImageCount="@ImageCount" />
+    }
+    
     @if (Tech != null && Tech.Any())
     {
         <div class="project-tech">
@@ -44,6 +49,12 @@
 
     [Parameter]
     public string Description { get; set; } = string.Empty;
+
+    [Parameter]
+    public string ImageFolder { get; set; } = string.Empty;
+
+    [Parameter]
+    public int ImageCount { get; set; } = 0;
 
     [Parameter]
     public IEnumerable<string> Tech { get; set; } = Array.Empty<string>();
