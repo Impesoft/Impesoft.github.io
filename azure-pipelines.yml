@@ -1,0 +1,37 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: Release
+  projectFile: www.impesoft.com.csproj
+  publishDir: $(Build.ArtifactStagingDirectory)/site
+
+steps:
+- task: UseDotNet@2
+  displayName: Use .NET SDK 10
+  inputs:
+    packageType: sdk
+    version: 10.x
+
+- script: dotnet restore $(projectFile)
+  displayName: Restore
+
+- script: dotnet publish $(projectFile) -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)/publish
+  displayName: Publish Blazor site
+
+- task: CopyFiles@2
+  displayName: Stage static site
+  inputs:
+    SourceFolder: $(Build.ArtifactStagingDirectory)/publish/wwwroot
+    Contents: '**'
+    TargetFolder: $(publishDir)
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish site artifact
+  inputs:
+    PathtoPublish: $(publishDir)
+    ArtifactName: site
+    publishLocation: Container

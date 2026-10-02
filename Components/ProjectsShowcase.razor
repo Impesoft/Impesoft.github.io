@@ -1,0 +1,148 @@
+<section id="projects" class="section" style="background: var(--bg-surface);">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Explore some of my open-source projects, toolkits, and web assets hosted on GitHub.</p>
+
+    <div class="projects-grid">
+        <ProjectCard Title="FileShareWeb"
+                     Description="Secure browser-to-S3 file sharing platform with per-space RBAC, resumable uploads, and a Blazor-driven management surface."
+                     Tech='@(new[] { "ASP.NET Core", "Blazor", "S3 / MinIO" })'
+                     Link="https://github.com/Impesoft/FileShareWeb"
+                     ImageFolder="FileShareWeb"
+                     ImageCount="1"
+                     OnImageClick="HandleImageClick" />
+
+        <ProjectCard Title="MixMaster"
+                     Description="Desktop DJ arrangement workstation for timeline-based mix construction, recordcase management, mixer control, and stem-layer workflows."
+                     Tech='@(new[] { "C#", "Avalonia", "Audio Engine" })'
+                     Link="https://github.com/Impesoft/MixMaster"
+                     ImageFolder="MixMaster"
+                     ImageCount="1"
+                     OnImageClick="HandleImageClick" />
+
+        <ProjectCard Title="Grommunio .NET"
+                     Description="Modern .NET webmail and administration client for Gromox and Grommunio, covering mail, calendar, contacts, tasks, and admin workflows."
+                     Tech='@(new[] { "ASP.NET Core", "Blazor", "Mail / Groupware" })'
+                     Link="https://github.com/dmvheu-wi/Grommunio"
+                     ImageFolder="Grommunio"
+                     ImageCount="1"
+                     OnImageClick="HandleImageClick" />
+
+        <ProjectCard Title="Spinrock"
+                     Description="High-performance .NET 10 AI workstream platform and CLI, built as a native port and architectural rewrite of Turnstone."
+                     Tech='@(new[] { "C#", ".NET 10", "LLM Tooling" })'
+                     Link="https://github.com/Impesoft/spinrock"
+                     ImageFolder="Spinrock"
+                     ImageCount="1"
+                     OnImageClick="HandleImageClick" />
+
+        <ProjectCard Title="POC InnerWorkings"
+                     Description="Trying to figure out the deeper innerworkings of Blazor."
+                     Tech='@(new[] { "C#", "Blazor", "Research" })'
+                     Link="https://github.com/Impesoft/POC_InnerWorkings"
+                     ImageFolder="POC_InnerWorkings"
+                     ImageCount="2"
+                     OnImageClick="HandleImageClick" />
+
+        <ProjectCard Title="VaccineApp"
+                     Description="A full-stack application developed as a vaccine management system."
+                     Tech='@(new[] { "C#", ".NET Core" })'
+                     Link="https://github.com/Impesoft/VaccineApp"
+                     ImageFolder="VaccineApp"
+                     ImageCount="1"
+                     OnImageClick="HandleImageClick" />
+
+        <ProjectCard Title="YES"
+                     Description="An experimental project exploring modern frameworks and design patterns."
+                     Tech='@(new[] { "C#" })'
+                     Link="https://github.com/Impesoft/YES"
+                     ImageFolder="Yes"
+                     ImageCount="3"
+                     OnImageClick="HandleImageClick" />
+
+        <ProjectCard Title="MusicTeacher"
+                     Description="Blazor WebAssembly music theory learning app for children."
+                     Tech='@(new[] { "C#", "Blazor", "Education" })'
+                     Link="https://github.com/Impesoft/MusicTeacher" />
+
+        <ProjectCard Title="Minimal Music Keyboard"
+                     Description="Lightweight system-tray MIDI player for Windows 11 with WinUI3, MeltySynth, and NAudio WASAPI."
+                     Tech='@(new[] { "C#", "WinUI3", "NAudio" })'
+                     Link="https://github.com/Impesoft/minimal-music-keyboard" />
+
+        <ProjectCard Title="Tetris"
+                     Description="A modern clean implementation of the classic Tetris game built to explore advanced logical state management and UI grid rendering."
+                     Tech='@(new[] { "C#", "Blazor", "CSS Grid" })'
+                     Link="https://github.com/Impesoft/Tetris" />
+
+        <ProjectCard Title="Console Pizzeria"
+                     Description="An interactive console application demonstrating object-oriented menu construction, shopping cart actions, and invoice formatting in C#."
+                     Tech='@(new[] { "C#", ".NET Core", "OOP" })'
+                     Link="https://github.com/Impesoft/WardsPizzeria" />
+
+        <ProjectCard Title="Game of Goose"
+                     Description="A digital implementation of the traditional board game with custom rule validations, turn-based loops, and simulated dice configurations."
+                     Tech='@(new[] { "C#", "Algorithm", "Console" })'
+                     Link="https://github.com/Impesoft/GOG" />
+    </div>
+</section>
+
+@if (isLightboxOpen)
+{
+    <div class="lightbox-overlay" @onclick="CloseLightbox">
+        <button class="lightbox-close" @onclick="CloseLightbox" @onclick:stopPropagation="true" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+
+        <div class="lightbox-content" @onclick:stopPropagation="true">
+            <img src="assets/img/projects/@lightboxFolder/screenshot_@(lightboxIndex).png" alt="Enlarged screenshot" />
+
+            @if (lightboxCount > 1)
+            {
+                <button class="lightbox-btn prev" @onclick="PrevLightboxSlide" aria-label="Previous image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="lightbox-btn next" @onclick="NextLightboxSlide" aria-label="Next image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    private bool isLightboxOpen;
+    private string lightboxFolder = string.Empty;
+    private int lightboxCount;
+    private int lightboxIndex = 1;
+
+    private void HandleImageClick((string Folder, int Count, int Index) data)
+    {
+        lightboxFolder = data.Folder;
+        lightboxCount = data.Count;
+        lightboxIndex = data.Index;
+        isLightboxOpen = true;
+    }
+
+    private void CloseLightbox()
+    {
+        isLightboxOpen = false;
+    }
+
+    private void NextLightboxSlide()
+    {
+        lightboxIndex++;
+        if (lightboxIndex > lightboxCount)
+        {
+            lightboxIndex = 1;
+        }
+    }
+
+    private void PrevLightboxSlide()
+    {
+        lightboxIndex--;
+        if (lightboxIndex < 1)
+        {
+            lightboxIndex = lightboxCount;
+        }
+    }
+}

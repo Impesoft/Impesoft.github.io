@@ -4,7 +4,7 @@
     <!-- Header Navigation -->
     <header class="main-header">
         <div class="nav-container">
-            <a href="#" class="logo-wrapper" @onclick='() => NavigateTo("#hero")'>
+            <a href="/" class="logo-wrapper" @onclick="CloseMenu" aria-label="Go to homepage">
                 <video src="assets/img/ward-logo.webm" muted autoplay loop playsinline class="logo-video"></video>
             </a>
             
@@ -17,13 +17,13 @@
             </button>
             
             <ul class="nav-links @(isMenuOpen ? "active-mobile" : "")">
-                <li><a href="#hero" class="@GetActiveClass("#hero")" @onclick='() => NavigateTo("#hero")'>Home</a></li>
-                <li><a href="#about" class="@GetActiveClass("#about")" @onclick='() => NavigateTo("#about")'>About</a></li>
-                <li><a href="#timeline" class="@GetActiveClass("#timeline")" @onclick='() => NavigateTo("#timeline")'>Timeline</a></li>
-                <li><a href="#services" class="@GetActiveClass("#services")" @onclick='() => NavigateTo("#services")'>Services</a></li>
-                <li><a href="#projects" class="@GetActiveClass("#projects")" @onclick='() => NavigateTo("#projects")'>Projects</a></li>
-                <li><a href="#contact" class="@GetActiveClass("#contact")" @onclick='() => NavigateTo("#contact")'>Contact</a></li>
-                <li><a href="https://impesoft.github.io/cv/" target="_blank" class="cv-link">CV</a></li>
+                <li><NavLink href="/" Match="NavLinkMatch.All" @onclick="CloseMenu">Home</NavLink></li>
+                <li><NavLink href="/about" @onclick="CloseMenu">About</NavLink></li>
+                <li><NavLink href="/education-work" @onclick="CloseMenu">Timeline</NavLink></li>
+                <li><NavLink href="/services" @onclick="CloseMenu">Services</NavLink></li>
+                <li><NavLink href="/projects" @onclick="CloseMenu">Projects</NavLink></li>
+                <li><NavLink href="/contact" @onclick="CloseMenu">Contact</NavLink></li>
+                <li><NavLink href="/cv" class="cv-link" @onclick="CloseMenu">CV</NavLink></li>
             </ul>
         </div>
     </header>
@@ -42,7 +42,7 @@
             <div class="footer-links">
                 <a href="https://github.com/Impesoft" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="mailto:Ward@impesoft.com">Email</a>
-                <a href="https://impesoft.github.io/cv/" target="_blank" rel="noopener noreferrer">CV</a>
+                <a href="/cv">CV</a>
             </div>
         </div>
     </footer>
@@ -50,21 +50,14 @@
 
 @code {
     private bool isMenuOpen = false;
-    private string activeAnchor = "#hero";
 
     private void ToggleMenu()
     {
         isMenuOpen = !isMenuOpen;
     }
 
-    private void NavigateTo(string anchor)
+    private void CloseMenu()
     {
-        activeAnchor = anchor;
         isMenuOpen = false;
-    }
-
-    private string GetActiveClass(string anchor)
-    {
-        return activeAnchor == anchor ? "active" : "";
     }
 }

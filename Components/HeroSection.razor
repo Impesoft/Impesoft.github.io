@@ -1,0 +1,107 @@
+@implements IDisposable
+
+<section id="hero" class="section hero-sec">
+    <div class="hero-content">
+        <span class="hero-subtitle">Welcome to my site</span>
+        <p class="hero-desc" style="color: var(--text-secondary); font-size: 1.15rem; max-width: 550px; min-height: 6em;">
+            @currentTypedDescription
+        </p>
+        <div class="hero-bottom">
+            <h1 class="hero-title">
+                <span class="hero-title-nowrap">
+                    I am <span style="color: var(--accent-primary);">@currentTypedText</span><span class="cursor" style="color: var(--accent-primary); font-weight: 300;">|</span>
+                </span>
+                <span class="hero-title-mobile">
+                    I am <span style="color: var(--accent-primary);">Ward Impe</span>
+                </span>
+            </h1>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <img src="assets/img/hero-visual.png" class="hero-image" alt="Hero visual" />
+    </div>
+</section>
+
+@code {
+    private readonly string[] typedItems =
+    [
+        "a C# .NET Developer",
+        "a Medior Full-Stack Engineer",
+        "a Tech Consultant",
+        "a Video Jockey & DJ",
+        "a Beta Tester",
+        "Ward Impe"
+    ];
+
+    private readonly string[] typedDescriptions =
+    [
+        "Crafting robust, scalable software solutions with .NET Core, APIs, and modern databases.",
+        "Building the bridge between secure database/backend layers and delightful user interfaces.",
+        "Providing tailormade technical advice, system admin setups, and network solutions.",
+        "Combining 20 years of entertainment production, social assertiveness, and performance planning.",
+        "Diagnosing software bugs, executing regression tests, and reporting directly to developers.",
+        "A full-stack software engineer and consulting specialist dedicated to solving complex problems."
+    ];
+
+    private string currentTypedText = string.Empty;
+    private string currentTypedDescription = string.Empty;
+    private int currentItemIndex;
+    private bool isDeleting;
+    private CancellationTokenSource? cts;
+
+    protected override void OnInitialized()
+    {
+        cts = new CancellationTokenSource();
+        currentTypedDescription = typedDescriptions[0];
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && cts is not null)
+        {
+            await StartTypingEffect(cts.Token);
+        }
+    }
+
+    private async Task StartTypingEffect(CancellationToken token)
+    {
+        try
+        {
+            while (!token.IsCancellationRequested)
+            {
+                var fullText = typedItems[currentItemIndex];
+                if (!isDeleting)
+                {
+                    currentTypedText = fullText[..(currentTypedText.Length + 1)];
+                    StateHasChanged();
+                    await Task.Delay(currentTypedText.Length == fullText.Length ? 2500 : 80, token);
+                    if (currentTypedText.Length == fullText.Length)
+                    {
+                        isDeleting = true;
+                    }
+                }
+                else
+                {
+                    currentTypedText = fullText[..(currentTypedText.Length - 1)];
+                    StateHasChanged();
+                    await Task.Delay(40, token);
+                    if (currentTypedText.Length == 0)
+                    {
+                        isDeleting = false;
+                        currentItemIndex = (currentItemIndex + 1) % typedItems.Length;
+                        currentTypedDescription = typedDescriptions[currentItemIndex];
+                    }
+                }
+            }
+        }
+        catch (TaskCanceledException)
+        {
+        }
+    }
+
+    public void Dispose()
+    {
+        cts?.Cancel();
+        cts?.Dispose();
+    }
+}
