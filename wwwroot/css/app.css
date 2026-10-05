@@ -644,6 +644,21 @@ h6 {
     align-items: center;
 }
 
+.project-visibility {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+}
+
+.project-visibility-private {
+    background-color: rgba(255, 184, 0, 0.14);
+    color: #ffcf66;
+    border: 1px solid rgba(255, 207, 102, 0.3);
+}
+
 .project-tech {
     display: flex;
     gap: 0.5rem;
@@ -661,6 +676,15 @@ h6 {
 
 .project-card h3 {
     font-size: 1.25rem;
+}
+
+.project-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-top: -0.5rem;
 }
 
 .project-desc {

@@ -1,10 +1,12 @@
 <section id="projects" class="section" style="background: var(--bg-surface);">
     <h2 class="section-title">Projects</h2>
-    <p class="section-subtitle">Explore some of my open-source projects, toolkits, and web assets hosted on GitHub.</p>
+    <p class="section-subtitle">Explore some of my public and client-restricted projects, toolkits, and web assets.</p>
 
     <div class="projects-grid">
         <ProjectCard Title="FileShareWeb"
                      Description="Secure browser-to-S3 file sharing platform with per-space RBAC, resumable uploads, and a Blazor-driven management surface."
+                     StartedLabel="Started Jul 2026"
+                     IsPrivate="true"
                      Tech='@(new[] { "ASP.NET Core", "Blazor", "S3 / MinIO" })'
                      Link="https://github.com/Impesoft/FileShareWeb"
                      ImageFolder="FileShareWeb"
@@ -13,6 +15,8 @@
 
         <ProjectCard Title="MixMaster"
                      Description="Desktop DJ arrangement workstation for timeline-based mix construction, recordcase management, mixer control, and stem-layer workflows."
+                     StartedLabel="Started Mar 2026"
+                     IsPrivate="true"
                      Tech='@(new[] { "C#", "Avalonia", "Audio Engine" })'
                      Link="https://github.com/Impesoft/MixMaster"
                      ImageFolder="MixMaster"
@@ -29,6 +33,8 @@
 
         <ProjectCard Title="Spinrock"
                      Description="High-performance .NET 10 AI workstream platform and CLI, built as a native port and architectural rewrite of Turnstone."
+                     StartedLabel="Started Aug 2026"
+                     IsPrivate="true"
                      Tech='@(new[] { "C#", ".NET 10", "LLM Tooling" })'
                      Link="https://github.com/Impesoft/spinrock"
                      ImageFolder="Spinrock"
@@ -37,6 +43,7 @@
 
         <ProjectCard Title="POC InnerWorkings"
                      Description="Trying to figure out the deeper innerworkings of Blazor."
+                     StartedLabel="Started Jan 2026"
                      Tech='@(new[] { "C#", "Blazor", "Research" })'
                      Link="https://github.com/Impesoft/POC_InnerWorkings"
                      ImageFolder="POC_InnerWorkings"
@@ -45,6 +52,7 @@
 
         <ProjectCard Title="VaccineApp"
                      Description="A full-stack application developed as a vaccine management system."
+                     StartedLabel="Started Jun 2021"
                      Tech='@(new[] { "C#", ".NET Core" })'
                      Link="https://github.com/Impesoft/VaccineApp"
                      ImageFolder="VaccineApp"
@@ -53,6 +61,7 @@
 
         <ProjectCard Title="YES"
                      Description="An experimental project exploring modern frameworks and design patterns."
+                     StartedLabel="Started Jun 2021"
                      Tech='@(new[] { "C#" })'
                      Link="https://github.com/Impesoft/YES"
                      ImageFolder="Yes"
@@ -61,26 +70,43 @@
 
         <ProjectCard Title="MusicTeacher"
                      Description="Blazor WebAssembly music theory learning app for children."
+                     StartedLabel="Started Jun 2026"
                      Tech='@(new[] { "C#", "Blazor", "Education" })'
                      Link="https://github.com/Impesoft/MusicTeacher" />
 
         <ProjectCard Title="Minimal Music Keyboard"
                      Description="Lightweight system-tray MIDI player for Windows 11 with WinUI3, MeltySynth, and NAudio WASAPI."
+                     StartedLabel="Started Mar 2026"
                      Tech='@(new[] { "C#", "WinUI3", "NAudio" })'
                      Link="https://github.com/Impesoft/minimal-music-keyboard" />
 
-        <ProjectCard Title="Tetris"
-                     Description="A modern clean implementation of the classic Tetris game built to explore advanced logical state management and UI grid rendering."
-                     Tech='@(new[] { "C#", "Blazor", "CSS Grid" })'
-                     Link="https://github.com/Impesoft/Tetris" />
+        <ProjectCard Title="BlazorArcade"
+                     Description="Retro browser arcade collection with puzzle, platform, and board games, packaged as an installable Blazor WebAssembly PWA."
+                     StartedLabel="Started Nov 2024"
+                     Tech='@(new[] { "C#", "Blazor WebAssembly", "PWA" })'
+                     Link="https://github.com/Impesoft/BlazorArcadeWebAssembly" />
+
+        <ProjectCard Title="BlazorCalendarDemo"
+                     Description="Reusable Blazor calendar component and demo app focused on portable booking grids, status visualization, and interaction patterns."
+                     StartedLabel="Started Apr 2026"
+                     Tech='@(new[] { "C#", "Blazor", "Component Library" })'
+                     Link="https://github.com/Impesoft/BlazorCalendarDemo" />
+
+        <ProjectCard Title="VirtualDjDBeditor"
+                     Description="WPF desktop tool for inspecting and editing VirtualDJ database records, tags, and indexed track metadata."
+                     StartedLabel="Started Mar 2024"
+                     Tech='@(new[] { "C#", "WPF", "Desktop Tooling" })'
+                     Link="https://github.com/Impesoft/VirtualDjDBeditor" />
 
         <ProjectCard Title="Console Pizzeria"
                      Description="An interactive console application demonstrating object-oriented menu construction, shopping cart actions, and invoice formatting in C#."
+                     StartedLabel="Started Dec 2020"
                      Tech='@(new[] { "C#", ".NET Core", "OOP" })'
                      Link="https://github.com/Impesoft/WardsPizzeria" />
 
         <ProjectCard Title="Game of Goose"
                      Description="A digital implementation of the traditional board game with custom rule validations, turn-based loops, and simulated dice configurations."
+                     StartedLabel="Started Feb 2021"
                      Tech='@(new[] { "C#", "Algorithm", "Console" })'
                      Link="https://github.com/Impesoft/GOG" />
     </div>

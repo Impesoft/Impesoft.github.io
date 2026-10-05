@@ -3,7 +3,11 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-primary);">
             <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
         </svg>
-        @if (!string.IsNullOrEmpty(Link))
+        @if (IsPrivate)
+        {
+            <span class="project-visibility project-visibility-private">[Private]</span>
+        }
+        else if (!string.IsNullOrEmpty(Link))
         {
             <a href="@Link" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub" style="color: var(--text-secondary);">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -14,6 +18,10 @@
     </div>
     
     <h3>@Title</h3>
+    @if (!string.IsNullOrEmpty(StartedLabel))
+    {
+        <p class="project-date">@StartedLabel</p>
+    }
     <p class="project-desc">@Description</p>
     
     @if (!string.IsNullOrEmpty(ImageFolder) && ImageCount > 0)
@@ -31,7 +39,7 @@
         </div>
     }
     
-    @if (!string.IsNullOrEmpty(Link))
+    @if (!IsPrivate && !string.IsNullOrEmpty(Link))
     {
         <a href="@Link" target="_blank" rel="noopener noreferrer" class="project-link">
             <span>View Source</span>
@@ -64,4 +72,10 @@
 
     [Parameter]
     public string Link { get; set; } = string.Empty;
+
+    [Parameter]
+    public string StartedLabel { get; set; } = string.Empty;
+
+    [Parameter]
+    public bool IsPrivate { get; set; }
 }
